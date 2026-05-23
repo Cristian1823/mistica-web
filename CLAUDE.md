@@ -31,7 +31,15 @@ Boutique e-commerce colombiana de bolsos y perfumes femeninos. Frontend 100% est
 
 - `bolsos/` — fotos de productos de bolsos (WhatsApp Image...)
 - `logos/` — `logo.png` (fondo transparente, temas claros), `transparente.jpeg` (noir)
-- `principales/` — imágenes destacadas para los HeroCards del home
+- `principales/` — imágenes destacadas para los HeroCards del home (`Bolso principal.jpeg`, `Bolso secundario.jpeg`, `perfume principal.jpeg`)
+
+## Diseño — decisiones clave
+
+- **Logo circular** — el círculo `.nav__logo-center` cubre la línea del nav creando efecto de integración. En móvil se reduce a 110px, en escritorio 176px.
+- **Línea del nav** — glow via `::after` con `var(--accent)`, cambia de color con cada paleta
+- **HeroCards** — primera tarjeta horizontal (ancho completo), las otras dos debajo. En móvil se apilan las tres verticalmente.
+- **WhatsApp FAB** — fondo `var(--accent)` (dorado), ícono SVG del logo real de WhatsApp en crema. Tooltip "¿Deseas hacer un pedido?" al hover. Pulso animado en dorado.
+- **Carrusel "Completa el look"** — en PDP, desliza productos relacionados. 220px por tarjeta, 3 visibles en escritorio.
 
 ## Routing
 
@@ -72,7 +80,7 @@ Redirige al cliente a página de éxito
 
 ### Pasos de implementación (cuando se retome)
 1. Crear cuenta en Wompi y obtener llaves públicas/privadas
-2. Mover el sitio a Vercel o Netlify (arrastrar carpeta, 5 minutos)
+2. ~~Mover el sitio a Vercel~~ — **ya está en Vercel** (https://mistica-web-two.vercel.app)
 3. Crear `/api/webhook.js` — Function que valida firma HMAC del webhook
 4. Crear `/api/crear-pago.js` — Function que genera la sesión de pago
 5. Reemplazar el botón "Finalizar por WhatsApp" en `CartDrawer` por el flujo de pago
