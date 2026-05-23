@@ -1,5 +1,11 @@
 # Mística — Guía del proyecto
 
+## Producción
+
+**URL:** https://mistica-web-two.vercel.app
+**Repositorio:** https://github.com/Cristian1823/mistica-web
+**Hosting:** Vercel (conectado a GitHub — cada push a `main` redespliega automáticamente)
+
 Boutique e-commerce colombiana de bolsos y perfumes femeninos. Frontend 100% estático, sin build process.
 
 ## Stack técnico
