@@ -22,7 +22,7 @@ Boutique e-commerce colombiana de bolsos y perfumes femeninos. Frontend 100% est
 | `index.html` | Entrada, carga CDNs y scripts en orden |
 | `data.js` | Catálogo de productos (bolsos + perfumes), expone `window.MISTICA_DATA` |
 | `app.jsx` | App root, rutas, carrito, favoritos, paletas |
-| `components.jsx` | Header, Footer, ProductCard, CartDrawer, SearchOverlay, WhatsAppFab, Toast |
+| `components.jsx` | Header, Footer, InstagramBanner, ProductCard, CartDrawer, SearchOverlay, WhatsAppFab (chat FAQ), MobileBottomNav, Toast |
 | `pages.jsx` | HomePage, CatalogPage, ProductPage, FavoritesPage, RelatedCarousel |
 | `styles.css` | Design system completo con variables CSS |
 | `tweaks-panel.jsx` | Panel lateral para cambiar paleta en vivo |
@@ -31,14 +31,17 @@ Boutique e-commerce colombiana de bolsos y perfumes femeninos. Frontend 100% est
 
 - `bolsos/` — fotos de productos de bolsos (WhatsApp Image...)
 - `logos/` — `logo.png` (fondo transparente, temas claros), `transparente.jpeg` (noir)
-- `principales/` — imágenes destacadas para los HeroCards del home (`Bolso principal.jpeg`, `Bolso secundario.jpeg`, `perfume principal.jpeg`)
+- `principales/` — imágenes destacadas para los HeroCards del home. Incluye `bolso sin fondo.png` y `yara sin fondo.png` (PNG con transparencia, fondo negro removido con Pillow)
+- `perfumes/` — fotos de los 10 perfumes reales (Yara Fucsia, Yara Beige, Yara Café, La Bomba, Ariana Grande, Burberry, Good Girl Negro/Rosa/Azul/Roja)
 
 ## Diseño — decisiones clave
 
 - **Logo circular** — el círculo `.nav__logo-center` cubre la línea del nav creando efecto de integración. En móvil se reduce a 110px, en escritorio 176px.
 - **Línea del nav** — glow via `::after` con `var(--accent)`, cambia de color con cada paleta
-- **HeroCards** — primera tarjeta horizontal (ancho completo), las otras dos debajo. En móvil se apilan las tres verticalmente.
-- **WhatsApp FAB** — fondo `var(--accent)` (dorado), ícono SVG del logo real de WhatsApp en crema. Tooltip "¿Deseas hacer un pedido?" al hover. Pulso animado en dorado.
+- **HeroCards** — primera tarjeta horizontal (ancho completo), las otras dos debajo. En móvil deslizan horizontalmente (scroll snap). Usan `imgContain` para imágenes PNG sin fondo.
+- **Chat FAQ (WhatsAppFab)** — burbuja flotante dorada. Al hacer clic abre un panel con flujo: saludo de "Mistic" → botón Adelante → 5 preguntas frecuentes → respuesta + botón a WhatsApp. Las preguntas están en `FAQ_ITEMS` en `components.jsx`.
+- **Mobile Bottom Nav** — barra fija inferior en móvil (≤640px) con Inicio, Catálogo, Favoritos, Carrito.
+- **Instagram Banner** — franja oscura sobre el footer con ícono de Instagram como hipervínculo a `@mistica_bylc`.
 - **Carrusel "Completa el look"** — en PDP, desliza productos relacionados. 220px por tarjeta, 3 visibles en escritorio.
 
 ## Routing
@@ -51,7 +54,7 @@ Las 4 paletas se definen en `app.jsx > PALETTES` y se aplican como variables CSS
 
 ## Checkout actual
 
-El carrito genera un mensaje formateado y abre `https://wa.me/573001112233`. El número está en `app.jsx > checkout()` y en `components.jsx > WhatsAppFab`.
+El carrito genera un mensaje formateado y abre `https://wa.me/573133265915`. El número real está en `app.jsx > checkout()` y en `components.jsx > WhatsAppFab` (default prop `phone`).
 
 ---
 
