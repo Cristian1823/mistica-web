@@ -43,7 +43,7 @@ const HomePage = ({ setRoute, addToCart, openProduct, favorites, toggleFav }) =>
               <div className="hero__stat-label">Clientas felices</div>
             </div>
             <div>
-              <div className="hero__stat-num">16</div>
+              <div className="hero__stat-num">18</div>
               <div className="hero__stat-label">Estilos únicos</div>
             </div>
             <div>
@@ -64,14 +64,14 @@ const HomePage = ({ setRoute, addToCart, openProduct, favorites, toggleFav }) =>
             onClick={() => openProduct(data.byId("b01"))}
           />
           <HeroCard
-            ph={{ bg:"#1a1410", a:"#3a3128", b:"#b8895a", shape:"perfume-tall", labelLight:true }}
+            ph={{ bg:"#c83050", a:"#e05870", b:"#8a1828", shape:"perfume-round", labelLight:true }}
             img="principales/perfume%20principal.jpeg"
             eyebrow="Perfumes"
-            title="Misterio"
-            desc="Ámbar y oud. Para noches que se quieren recordar."
-            corner="Nuevo"
+            title="Good Girl"
+            desc="Oriental floral. Para noches que se quieren recordar."
+            corner="Bestseller"
             dark
-            onClick={() => openProduct(data.byId("p02"))}
+            onClick={() => openProduct(data.byId("p10"))}
           />
           <HeroCard
             ph={{ bg:"#e8c9c1", a:"#f2dad3", b:"#c08a7e", shape:"perfume-square" }}
@@ -129,7 +129,7 @@ const HomePage = ({ setRoute, addToCart, openProduct, favorites, toggleFav }) =>
               <Placeholder ph={{ bg:"#e8c9c1", a:"#f2dad3", b:"#c08a7e", shape:"perfume-round" }} />
             </div>
             <div className="cat__content">
-              <div className="cat__count">8 fragancias</div>
+              <div className="cat__count">10 fragancias</div>
               <div className="cat__title">Perfumes</div>
               <div className="cat__desc">Florales, orientales, cítricos y gourmand. Larga duración, perfil de ingredientes transparente.</div>
               <span className="link-underline">Explorar <Icon name="arrowSm" size={12} /></span>

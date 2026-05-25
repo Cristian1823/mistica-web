@@ -85,7 +85,7 @@ const App = () => {
       if (found) return prev.map(i => i.key === key ? { ...i, qty: i.qty + qty } : i);
       return [...prev, {
         key, id: product.id, name: product.name, sub: product.sub,
-        price: product.price, ph: product.ph, qty, size, color,
+        price: product.price, ph: product.ph, img: product.img || null, qty, size, color,
         categoryKey: product.categoryKey || (window.MISTICA_DATA.bolsos.find(b => b.id === product.id) ? "bolsos" : "perfumes"),
       }];
     });
@@ -206,6 +206,13 @@ const App = () => {
 
       <WhatsAppFab />
       <Toast msg={toast.msg} show={toast.show} />
+      <MobileBottomNav
+        route={route}
+        setRoute={setRoute}
+        cartCount={cartCount}
+        favoritesCount={favorites.length}
+        openCart={() => setCartOpen(true)}
+      />
 
       {window.TweaksPanel && (
         <window.TweaksPanel title="Tweaks">

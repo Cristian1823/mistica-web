@@ -451,7 +451,43 @@ const Toast = ({ msg, show }) => (
   </div>
 );
 
+// ---------- Mobile Bottom Navigation ----------
+const MobileBottomNav = ({ route, setRoute, cartCount, favoritesCount, openCart }) => (
+  <nav className="mobile-bottom-nav">
+    <button
+      className={`mobile-bottom-nav__item ${route.name === "home" ? "is-active" : ""}`}
+      onClick={() => setRoute({ name: "home" })}
+    >
+      <Icon name="sparkle" size={20} stroke={1.5} />
+      <span className="mobile-bottom-nav__label">Inicio</span>
+    </button>
+    <button
+      className={`mobile-bottom-nav__item ${route.name === "catalog" ? "is-active" : ""}`}
+      onClick={() => setRoute({ name: "catalog", cat: "bolsos" })}
+    >
+      <Icon name="swatch" size={20} stroke={1.5} />
+      <span className="mobile-bottom-nav__label">Catálogo</span>
+    </button>
+    <button
+      className={`mobile-bottom-nav__item ${route.name === "favorites" ? "is-active" : ""}`}
+      onClick={() => setRoute({ name: "favorites" })}
+    >
+      <Icon name="heart" size={20} stroke={1.5} />
+      <span className="mobile-bottom-nav__label">Favoritos</span>
+      {favoritesCount > 0 && <span className="mobile-bottom-nav__badge">{favoritesCount}</span>}
+    </button>
+    <button
+      className="mobile-bottom-nav__item"
+      onClick={openCart}
+    >
+      <Icon name="bag" size={20} stroke={1.5} />
+      <span className="mobile-bottom-nav__label">Carrito</span>
+      {cartCount > 0 && <span className="mobile-bottom-nav__badge">{cartCount}</span>}
+    </button>
+  </nav>
+);
+
 Object.assign(window, {
   Icon, Placeholder, ProductShape, Logo, Header, Footer,
-  ProductCard, CartDrawer, SearchOverlay, WhatsAppFab, Toast,
+  ProductCard, CartDrawer, SearchOverlay, WhatsAppFab, Toast, MobileBottomNav,
 });
