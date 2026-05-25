@@ -428,18 +428,112 @@ const SearchOverlay = ({ open, onClose, products, onOpenProduct }) => {
   );
 };
 
-// ---------- WhatsApp FAB ----------
-const WhatsAppFab = ({ phone = "573133265915" }) => (
-  <a className="wa-fab" href={`https://wa.me/${phone}?text=${encodeURIComponent("¡Hola! Quisiera más información sobre Mística.")}`} target="_blank" rel="noopener">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Burbuja de chat con cola */}
-      <path fill="rgba(26,20,16,0.18)" d="M12 3C7.03 3 3 7.03 3 12c0 1.6.41 3.1 1.13 4.4L3 21l4.72-1.24A9 9 0 1 0 12 3z"/>
-      {/* Teléfono interno en crema */}
-      <path fill="#f3ece1" d="M15.9 14.4c-.18-.09-1.08-.53-1.25-.59-.17-.06-.29-.09-.41.09-.12.18-.47.59-.58.71-.1.12-.21.14-.39.05-.18-.09-.76-.28-1.45-.89-.54-.48-.9-1.07-1-1.25-.1-.18-.01-.27.08-.36.08-.08.18-.2.27-.31.09-.1.12-.18.18-.3.06-.11.03-.22-.01-.31-.04-.09-.41-.99-.56-1.35-.15-.36-.3-.31-.41-.31-.1 0-.23-.01-.35-.01s-.32.04-.49.22c-.17.18-.64.63-.64 1.53s.66 1.77.75 1.9c.09.12 1.29 1.97 3.13 2.76.44.19.78.3 1.04.38.44.14.84.12 1.15.07.35-.05 1.08-.44 1.24-.87.15-.43.15-.79.1-.87-.04-.08-.16-.12-.34-.21z"/>
-    </svg>
-    <span className="wa-fab__tooltip">¿Deseas hacer un pedido?</span>
-  </a>
-);
+// ---------- Chat Widget (FAQ + WhatsApp) ----------
+const FAQ_ITEMS = [
+  {
+    q: "¿Hacen envíos a todo Colombia?",
+    a: "¡Sí! Enviamos a todo el país. El envío es gratis en pedidos desde $150.000. En ciudades principales llega en 2–3 días hábiles."
+  },
+  {
+    q: "¿Cómo hago un pedido?",
+    a: "Elige tu producto, selecciona color o talla, agrégalo al carrito y toca 'Finalizar por WhatsApp'. ¡Te acompañamos en cada paso!"
+  },
+  {
+    q: "¿Aceptan Nequi o transferencia?",
+    a: "¡Claro! Aceptamos Nequi, transferencia bancaria y contraentrega. El pago se coordina directamente con nosotras por WhatsApp."
+  },
+  {
+    q: "¿Cuánto tarda en llegar mi pedido?",
+    a: "Despachamos en 24 horas hábiles. Ciudades principales: 2–3 días. Municipios: 4–6 días. Te compartimos el número de guía para rastrear."
+  },
+  {
+    q: "¿Tienen garantía o cambios?",
+    a: "Sí. Tienes 30 días para solicitar un cambio si el producto no cumple tus expectativas. Tu satisfacción es lo primero."
+  },
+];
+
+// step: "intro" | "questions" | number
+const WhatsAppFab = ({ phone = "573133265915" }) => {
+  const [open, setOpen] = useState(false);
+  const [step, setStep] = useState("intro");
+
+  const openWA = () => window.open(
+    `https://wa.me/${phone}?text=${encodeURIComponent("¡Hola! Quisiera más información sobre Mística.")}`,
+    "_blank"
+  );
+  const toggle = () => { setOpen(o => !o); setStep("intro"); };
+
+  return (
+    <div className="chat-widget">
+      {open && (
+        <div className="chat-panel">
+          <div className="chat-panel__head">
+            <div style={{ display:"flex", alignItems:"center", gap:10 }}>
+              <div className="chat-panel__avatar">
+                <img src="logos/logo.png" alt="Mística" style={{ width:"100%", height:"100%", objectFit:"contain", padding:"4px" }} />
+              </div>
+              <div>
+                <div style={{ fontFamily:"var(--font-serif)", fontSize:15, fontStyle:"italic" }}>Mística</div>
+                <div style={{ fontSize:10, opacity:.65, letterSpacing:".1em", textTransform:"uppercase" }}>Asistente · En línea</div>
+              </div>
+            </div>
+            <button className="chat-panel__close" onClick={toggle}>
+              <Icon name="close" size={16} />
+            </button>
+          </div>
+          <div className="chat-panel__body">
+
+            {step === "intro" && (
+              <>
+                <div className="chat-bubble">
+                  Hola, soy Mistic, tu asesora personal. ✨<br />
+                  Estoy aquí para ayudarte con todo lo que necesites.
+                </div>
+                <button className="btn btn--primary" style={{ width:"100%", justifyContent:"center" }} onClick={() => setStep("questions")}>
+                  Adelante <Icon name="arrowSm" size={13} />
+                </button>
+              </>
+            )}
+
+            {step === "questions" && (
+              <>
+                <div className="chat-bubble">¿Sobre qué te puedo ayudar?</div>
+                <div className="chat-questions">
+                  {FAQ_ITEMS.map((item, i) => (
+                    <button key={i} className="chat-question" onClick={() => setStep(i)}>
+                      {item.q}
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {typeof step === "number" && (
+              <>
+                <div className="chat-bubble chat-bubble--user">{FAQ_ITEMS[step].q}</div>
+                <div className="chat-bubble">{FAQ_ITEMS[step].a}</div>
+                <div style={{ display:"flex", flexDirection:"column", gap:8, marginTop:4 }}>
+                  <button className="chat-question" onClick={() => setStep("questions")}>← Ver otras preguntas</button>
+                  <button className="btn btn--gold" style={{ width:"100%", justifyContent:"center" }} onClick={openWA}>
+                    <Icon name="whatsapp" size={14} /> Hablar con nosotras
+                  </button>
+                </div>
+              </>
+            )}
+
+          </div>
+        </div>
+      )}
+      <button className="wa-fab" onClick={toggle} aria-label="Chat de ayuda">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path fill="rgba(26,20,16,0.18)" d="M12 3C7.03 3 3 7.03 3 12c0 1.6.41 3.1 1.13 4.4L3 21l4.72-1.24A9 9 0 1 0 12 3z"/>
+          <path fill="#f3ece1" d="M15.9 14.4c-.18-.09-1.08-.53-1.25-.59-.17-.06-.29-.09-.41.09-.12.18-.47.59-.58.71-.1.12-.21.14-.39.05-.18-.09-.76-.28-1.45-.89-.54-.48-.9-1.07-1-1.25-.1-.18-.01-.27.08-.36.08-.08.18-.2.27-.31.09-.1.12-.18.18-.3.06-.11.03-.22-.01-.31-.04-.09-.41-.99-.56-1.35-.15-.36-.3-.31-.41-.31-.1 0-.23-.01-.35-.01s-.32.04-.49.22c-.17.18-.64.63-.64 1.53s.66 1.77.75 1.9c.09.12 1.29 1.97 3.13 2.76.44.19.78.3 1.04.38.44.14.84.12 1.15.07.35-.05 1.08-.44 1.24-.87.15-.43.15-.79.1-.87-.04-.08-.16-.12-.34-.21z"/>
+        </svg>
+        {!open && <span className="wa-fab__tooltip">¿Deseas hacer un pedido?</span>}
+      </button>
+    </div>
+  );
+};
 
 // ---------- Toast ----------
 const Toast = ({ msg, show }) => (
