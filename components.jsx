@@ -260,9 +260,8 @@ const Footer = ({ setRoute, palette }) => (
       </div>
       <div className="footer__bottom">
         <span>© 2026 Mística — Hecho con cuidado en Colombia</span>
-        <div className="footer__socials">
-          <a className="footer__social" href="https://www.instagram.com/mistica_bylc?igsh=MWQ0eHRvZmsyY2YyMA==" target="_blank" rel="noopener"><Icon name="instagram" size={16} /></a>
-          <a className="footer__social" href="https://wa.me/573133265915" target="_blank" rel="noopener"><Icon name="whatsapp" size={16} /></a>
+        <div className="footer__socials" style={{ justifyContent:"center" }}>
+          <a className="footer__social" href="https://www.instagram.com/mistica_bylc?igsh=MWQ0eHRvZmsyY2YyMA==" target="_blank" rel="noopener"><Icon name="instagram" size={18} /></a>
         </div>
       </div>
     </div>
