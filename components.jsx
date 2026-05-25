@@ -217,6 +217,28 @@ const Header = ({ route, setRoute, cartCount, openCart, openSearch, favoritesCou
   );
 };
 
+// ---------- Instagram Banner ----------
+const InstagramBanner = () => (
+  <div className="ig-banner">
+    <div className="ig-banner__inner">
+      <a
+        className="ig-banner__icon"
+        href="https://www.instagram.com/mistica_bylc?igsh=MWQ0eHRvZmsyY2YyMA=="
+        target="_blank"
+        rel="noopener"
+        aria-label="Ir a Instagram de Mística"
+      >
+        <Icon name="instagram" size={28} stroke={1.5} />
+      </a>
+      <div>
+        <div className="ig-banner__title">Síguenos en Instagram</div>
+        <div className="ig-banner__handle">@mistica_bylc</div>
+        <div className="ig-banner__sub">Nuevas llegadas, looks del día y promos exclusivas para seguidoras</div>
+      </div>
+    </div>
+  </div>
+);
+
 // ---------- Footer ----------
 const Footer = ({ setRoute, palette }) => (
   <footer className="footer">
@@ -260,9 +282,6 @@ const Footer = ({ setRoute, palette }) => (
       </div>
       <div className="footer__bottom">
         <span>© 2026 Mística — Hecho con cuidado en Colombia</span>
-        <div className="footer__socials" style={{ justifyContent:"center" }}>
-          <a className="footer__social" href="https://www.instagram.com/mistica_bylc?igsh=MWQ0eHRvZmsyY2YyMA==" target="_blank" rel="noopener"><Icon name="instagram" size={18} /></a>
-        </div>
       </div>
     </div>
   </footer>
@@ -579,6 +598,6 @@ const MobileBottomNav = ({ route, setRoute, cartCount, favoritesCount, openCart 
 );
 
 Object.assign(window, {
-  Icon, Placeholder, ProductShape, Logo, Header, Footer,
+  Icon, Placeholder, ProductShape, Logo, Header, Footer, InstagramBanner,
   ProductCard, CartDrawer, SearchOverlay, WhatsAppFab, Toast, MobileBottomNav,
 });

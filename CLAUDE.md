@@ -91,3 +91,26 @@ Redirige al cliente a página de éxito
 - Validar firma HMAC en cada webhook (nunca confiar solo en el payload)
 - Nunca procesar confirmaciones desde el frontend (solo desde la Function)
 - No almacenar números de tarjeta — la pasarela lo maneja, tú nunca los ves
+
+---
+
+## Sección Newsletter (desactivada — reactivar cuando se conecte Formspree o Mailchimp)
+
+Pegar este bloque en `pages.jsx` dentro de `HomePage`, justo antes del cierre `</div>` final de la página (antes de `);`):
+
+```jsx
+{/* NEWSLETTER */}
+<section className="news">
+  <div style={{ fontFamily:"var(--font-serif)", fontStyle:"italic", color:"var(--accent)", marginBottom:16, fontSize:18 }}>✦ Comunidad Mística ✦</div>
+  <h2 className="news__title">Sé la primera en <em>conocer las novedades.</em></h2>
+  <p className="news__sub">
+    15% off en tu primera compra + acceso anticipado a lanzamientos y promos exclusivas. Sin spam, solo cosas bonitas.
+  </p>
+  <form className="news__form" onSubmit={(e) => { e.preventDefault(); alert("¡Bienvenida a la familia Mística! Revisa tu correo."); }}>
+    <input type="email" placeholder="tu@correo.com" className="news__input" required />
+    <button className="btn btn--gold">Suscribirme</button>
+  </form>
+</section>
+```
+
+Para activar de verdad: reemplazar el `onSubmit` con un POST a Formspree (`https://formspree.io/f/XXXXXX`) o al endpoint de Mailchimp. Ver sección de integraciones pendientes.

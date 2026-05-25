@@ -924,6 +924,54 @@ input, textarea, select {
   text-align: center;
 }
 
+/* ===== Instagram Banner ===== */
+.ig-banner {
+  background: var(--ink);
+  color: var(--on-dark);
+  padding: 40px var(--pad-x);
+  border-top: 1px solid rgba(243,236,225,.08);
+}
+.ig-banner__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.ig-banner__icon {
+  width: 56px; height: 56px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f9ce34, #ee2a7b, #6228d7);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+.ig-banner__title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.ig-banner__handle {
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: .06em;
+  margin-bottom: 4px;
+}
+.ig-banner__sub {
+  font-size: 13px;
+  opacity: .6;
+  max-width: 400px;
+}
+.ig-banner__icon {
+  transition: transform .25s, opacity .2s;
+}
+.ig-banner__icon:hover { transform: scale(1.1); opacity: .85; }
+@media (max-width: 640px) {
+  .ig-banner { padding: 32px var(--pad-x); }
+}
+
 /* ===== Footer ===== */
 .footer {
   background: var(--bg-alt);

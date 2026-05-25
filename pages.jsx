@@ -218,18 +218,6 @@ const HomePage = ({ setRoute, addToCart, openProduct, favorites, toggleFav }) =>
         </div>
       </section>
 
-      {/* NEWSLETTER */}
-      <section className="news">
-        <div style={{ fontFamily:"var(--font-serif)", fontStyle:"italic", color:"var(--accent)", marginBottom:16, fontSize:18 }}>✦ Comunidad Mística ✦</div>
-        <h2 className="news__title">Sé la primera en <em>conocer las novedades.</em></h2>
-        <p className="news__sub">
-          15% off en tu primera compra + acceso anticipado a lanzamientos y promos exclusivas. Sin spam, solo cosas bonitas.
-        </p>
-        <form className="news__form" onSubmit={(e) => { e.preventDefault(); alert("¡Bienvenida a la familia Mística! Revisa tu correo."); }}>
-          <input type="email" placeholder="tu@correo.com" className="news__input" required />
-          <button className="btn btn--gold">Suscribirme</button>
-        </form>
-      </section>
     </div>
   );
 };

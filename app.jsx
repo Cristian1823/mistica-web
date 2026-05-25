@@ -184,6 +184,7 @@ const App = () => {
         )}
       </main>
 
+      <InstagramBanner />
       <Footer setRoute={setRoute} palette={t.palette} />
 
       <CartDrawer
