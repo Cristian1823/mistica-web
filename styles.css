@@ -1713,8 +1713,7 @@ input, textarea, select {
   /* Hero cards: show full product image without cropping on mobile */
   .hero-card img {
     object-fit: contain !important;
-    padding: 20px !important;
-    background: inherit;
+    padding: 8px !important;
   }
 
   /* Hero showcase: horizontal scroll on mobile */
@@ -1738,7 +1737,7 @@ input, textarea, select {
   .hero-card {
     flex-shrink: 0 !important;
     width: 76vw !important;
-    height: 230px !important;
+    height: 270px !important;
     scroll-snap-align: start;
     grid-column: unset !important;
     grid-row: unset !important;
