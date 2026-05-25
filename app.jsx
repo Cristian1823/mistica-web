@@ -124,7 +124,7 @@ const App = () => {
       msg += ` - ${window.formatPrice(item.price * item.qty)}%0A`;
     });
     msg += `%0A*Total: ${window.formatPrice(cartTotal)}*%0A%0A¿Me confirmas disponibilidad y envío?`;
-    window.open(`https://wa.me/573001112233?text=${msg}`, "_blank");
+    window.open(`https://wa.me/573133265915?text=${msg}`, "_blank");
   };
 
   // Resolve current product

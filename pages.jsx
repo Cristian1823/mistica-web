@@ -193,7 +193,7 @@ const HomePage = ({ setRoute, addToCart, openProduct, favorites, toggleFav }) =>
                 <button className="btn btn--primary" onClick={() => setRoute({ name:"catalog", cat:"bolsos" })}>
                   Conoce la colección
                 </button>
-                <button className="btn btn--ghost">Síguenos en Instagram</button>
+                <a className="btn btn--ghost" href="https://www.instagram.com/mistica_bylc?igsh=MWQ0eHRvZmsyY2YyMA==" target="_blank" rel="noopener">Síguenos en Instagram</a>
               </div>
             </div>
           </div>

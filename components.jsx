@@ -261,10 +261,8 @@ const Footer = ({ setRoute, palette }) => (
       <div className="footer__bottom">
         <span>© 2026 Mística — Hecho con cuidado en Colombia</span>
         <div className="footer__socials">
-          <a className="footer__social"><Icon name="instagram" size={16} /></a>
-          <a className="footer__social"><Icon name="tiktok" size={16} /></a>
-          <a className="footer__social"><Icon name="facebook" size={16} /></a>
-          <a className="footer__social"><Icon name="whatsapp" size={16} /></a>
+          <a className="footer__social" href="https://www.instagram.com/mistica_bylc?igsh=MWQ0eHRvZmsyY2YyMA==" target="_blank" rel="noopener"><Icon name="instagram" size={16} /></a>
+          <a className="footer__social" href="https://wa.me/573133265915" target="_blank" rel="noopener"><Icon name="whatsapp" size={16} /></a>
         </div>
       </div>
     </div>
@@ -431,7 +429,7 @@ const SearchOverlay = ({ open, onClose, products, onOpenProduct }) => {
 };
 
 // ---------- WhatsApp FAB ----------
-const WhatsAppFab = ({ phone = "573001112233" }) => (
+const WhatsAppFab = ({ phone = "573133265915" }) => (
   <a className="wa-fab" href={`https://wa.me/${phone}?text=${encodeURIComponent("¡Hola! Quisiera más información sobre Mística.")}`} target="_blank" rel="noopener">
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       {/* Burbuja de chat con cola */}
