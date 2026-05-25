@@ -56,7 +56,8 @@ const HomePage = ({ setRoute, addToCart, openProduct, favorites, toggleFav }) =>
         <div className="hero__showcase">
           <HeroCard
             ph={{ bg:"#d4b48a", a:"#e8c9a6", b:"#9a6f43", shape:"bag-tote" }}
-            img="principales/Bolso%20principal.jpeg"
+            img="principales/bolso%20sin%20fondo.png"
+            imgContain
             eyebrow="Bolsos"
             title="Aurora"
             desc="Estructura firme, herraje dorado. El bolso que te acompaña de la oficina a la cita."
@@ -65,7 +66,8 @@ const HomePage = ({ setRoute, addToCart, openProduct, favorites, toggleFav }) =>
           />
           <HeroCard
             ph={{ bg:"#c83050", a:"#e05870", b:"#8a1828", shape:"perfume-round", labelLight:true }}
-            img="principales/perfume%20principal.jpeg"
+            img="principales/yara%20sin%20fondo.png"
+            imgContain
             eyebrow="Perfumes"
             title="Good Girl"
             desc="Oriental floral. Para noches que se quieren recordar."
