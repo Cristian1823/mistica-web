@@ -1710,6 +1710,13 @@ input, textarea, select {
   .hero__stats { margin-top: 36px; gap: 20px; }
   .hero__stat-num { font-size: 26px; }
 
+  /* Hero cards: show full product image without cropping on mobile */
+  .hero-card img {
+    object-fit: contain !important;
+    padding: 20px !important;
+    background: inherit;
+  }
+
   /* Hero showcase: horizontal scroll on mobile */
   .hero__showcase {
     display: flex !important;
