@@ -2,9 +2,11 @@
 
 ## Producción
 
-**URL:** https://mistica-web-two.vercel.app
+**URL:** https://www.mistica.website (dominio principal)
+**URL alternativa:** https://mistica-web-two.vercel.app
 **Repositorio:** https://github.com/Cristian1823/mistica-web
 **Hosting:** Vercel (conectado a GitHub — cada push a `main` redespliega automáticamente)
+**Dominio:** `mistica.website` comprado en GoDaddy, conectado a Vercel via registro A (`216.198.79.1`) y CNAME www (`c975a8d25b624760.vercel-dns-017.com.`)
 
 Boutique e-commerce colombiana de bolsos y perfumes femeninos. Frontend 100% estático, sin build process.
 
@@ -83,7 +85,7 @@ Redirige al cliente a página de éxito
 
 ### Pasos de implementación (cuando se retome)
 1. Crear cuenta en Wompi y obtener llaves públicas/privadas
-2. ~~Mover el sitio a Vercel~~ — **ya está en Vercel** (https://mistica-web-two.vercel.app)
+2. ~~Mover el sitio a Vercel~~ — **ya está en Vercel** (https://www.mistica.website)
 3. Crear `/api/webhook.js` — Function que valida firma HMAC del webhook
 4. Crear `/api/crear-pago.js` — Function que genera la sesión de pago
 5. Reemplazar el botón "Finalizar por WhatsApp" en `CartDrawer` por el flujo de pago
