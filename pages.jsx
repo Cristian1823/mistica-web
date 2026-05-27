@@ -27,7 +27,7 @@ const HomePage = ({ setRoute, addToCart, openProduct, favorites, toggleFav }) =>
             con <em>carácter.</em>
           </h1>
           <p className="hero__sub">
-            Bolsos versátiles y perfumes auténticos para mujeres que se mueven, deciden y se ven bien sin gastar de más. Boutique cálida, precio honesto.
+            Piezas pensadas para acompañar tu estilo, resaltar tu esencia y hacerte sentir única todos los días.
           </p>
           <div className="hero__ctas">
             <button className="btn btn--primary btn--lg" onClick={() => setRoute({ name:"catalog", cat:"bolsos" })}>
@@ -116,19 +116,19 @@ const HomePage = ({ setRoute, addToCart, openProduct, favorites, toggleFav }) =>
         <div className="cats">
           <div className="cat" onClick={() => setRoute({ name:"catalog", cat:"bolsos" })}>
             <div className="cat__media">
-              <Placeholder ph={{ bg:"#b8895a", a:"#d4b48a", b:"#7a5a3a", shape:"bag-tote" }} />
+              <img src="logos/bolsos%20principal.jpeg" alt="Bolsos" style={{ width:"100%", height:"100%", objectFit:"cover" }} />
             </div>
             <div className="cat__content">
               <div className="cat__count">8 estilos</div>
               <div className="cat__title">Bolsos</div>
-              <div className="cat__desc">Totes, crossbody, clutches y mochilas. Materiales premium veganos, herrajes dorados, líneas atemporales.</div>
+              <div className="cat__desc">Elegancia, funcionalidad y estilo en una colección creada para mujeres auténticas y seguras de sí mismas.</div>
               <span className="link-underline">Explorar <Icon name="arrowSm" size={12} /></span>
             </div>
             <div className="cat__arrow"><Icon name="arrow" size={20} /></div>
           </div>
           <div className="cat" onClick={() => setRoute({ name:"catalog", cat:"perfumes" })}>
             <div className="cat__media">
-              <Placeholder ph={{ bg:"#e8c9c1", a:"#f2dad3", b:"#c08a7e", shape:"perfume-round" }} />
+              <img src="logos/perfumes%20principal.jpeg" alt="Perfumes" style={{ width:"100%", height:"100%", objectFit:"cover" }} />
             </div>
             <div className="cat__content">
               <div className="cat__count">10 fragancias</div>
@@ -180,7 +180,7 @@ const HomePage = ({ setRoute, addToCart, openProduct, favorites, toggleFav }) =>
         <div className="container">
           <div className="story">
             <div className="story__media">
-              <Placeholder ph={{ bg:"#c9a574", a:"#e0c08a", b:"#7a5a3a", shape:"bag-hobo" }} label="Foto · founder o producción" />
+              <img src="logos/historia.jpeg" alt="Nuestra historia" style={{ width:"100%", height:"100%", objectFit:"cover", borderRadius:"inherit" }} />
             </div>
             <div className="story__body">
               <div className="eyebrow" style={{ marginBottom:14 }}>— Nuestra historia</div>
@@ -211,9 +211,8 @@ const HomePage = ({ setRoute, addToCart, openProduct, favorites, toggleFav }) =>
           </div>
         </div>
         <div className="values">
-          <Value icon="leaf" title="Materiales conscientes" desc="Piel sintética premium y fragancias sin químicos agresivos." />
           <Value icon="truck" title="Envío rápido" desc="Despacho en 24h. Gratis desde $150.000 a toda Colombia." />
-          <Value icon="shield" title="Calidad garantizada" desc="30 días para cambios. Si no te enamora, lo cambiamos." />
+          <Value icon="shield" title="Calidad garantizada" desc="15 días para cambios. Si no te enamora, lo cambiamos." />
           <Value icon="whatsapp" title="Asesoría 1 a 1" desc="Chatea con nosotras por WhatsApp para encontrar tu match perfecto." />
         </div>
       </section>
@@ -273,7 +272,7 @@ const CatalogPage = ({ category, initialFilter, addToCart, openProduct, favorite
 
   const catTitle = category === "bolsos" ? "Bolsos" : "Perfumes";
   const catSub = category === "bolsos"
-    ? "Versátiles para cada momento. Materiales premium, precios honestos."
+    ? "Diseños atemporales, acabados sofisticados y detalles pensados para elevar cualquier look."
     : "Aromas auténticos para tu mejor versión. Larga duración, ingredientes transparentes.";
 
   return (
@@ -523,7 +522,7 @@ const ProductPage = ({ product, addToCart, setRoute, isFav, onToggleFav, openPro
 
           <div className="pdp__perks">
             <div className="pdp__perk"><Icon name="truck" size={18} /> Envío gratis desde $150K</div>
-            <div className="pdp__perk"><Icon name="refresh" size={18} /> Cambios 30 días</div>
+            <div className="pdp__perk"><Icon name="refresh" size={18} /> Cambios 15 días</div>
             <div className="pdp__perk"><Icon name="shield" size={18} /> Calidad garantizada</div>
             <div className="pdp__perk"><Icon name="whatsapp" size={18} /> Asesoría por WhatsApp</div>
           </div>
@@ -545,7 +544,7 @@ const ProductPage = ({ product, addToCart, setRoute, isFav, onToggleFav, openPro
               }
             </AccordionItem>
             <AccordionItem title="Envío y devoluciones" open={openAcc === "ship"} onToggle={() => setOpenAcc(openAcc === "ship" ? "" : "ship")}>
-              Despachamos en 24h hábiles. Envíos a todo Colombia (Servientrega/Coordinadora). Gratis desde $150.000. Cambios y devoluciones dentro de 30 días.
+              Despachamos en 24h hábiles. Envíos a todo Colombia (Servientrega/Coordinadora). Gratis desde $150.000. Cambios y devoluciones dentro de 15 días.
             </AccordionItem>
           </div>
         </div>

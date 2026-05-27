@@ -261,24 +261,6 @@ const Footer = ({ setRoute, palette }) => (
             <a onClick={() => setRoute({ name:"catalog", cat:"bolsos", filter:"Nuevo" })}>Novedades</a>
           </div>
         </div>
-        <div>
-          <div className="footer__head">Marca</div>
-          <div className="footer__list">
-            <a onClick={() => setRoute({ name:"home", scrollTo:"story" })}>Nuestra historia</a>
-            <a>Sostenibilidad</a>
-            <a>Embajadoras</a>
-            <a>Blog</a>
-          </div>
-        </div>
-        <div>
-          <div className="footer__head">Ayuda</div>
-          <div className="footer__list">
-            <a>Envíos</a>
-            <a>Devoluciones</a>
-            <a>Cuidado del producto</a>
-            <a>Contacto</a>
-          </div>
-        </div>
       </div>
       <div className="footer__bottom">
         <span>© 2026 Mística — Hecho con cuidado en Colombia</span>
